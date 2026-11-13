@@ -24,7 +24,7 @@ from bs4 import BeautifulSoup
 # ---------------------------------------------------------------- config
 WEBHOOK_URL = os.environ.get("DISCORD_WEBHOOK_URL", "").strip()
 AVATAR_URL = os.environ.get("AVATAR_URL", "").strip() or None
-BOT_NAME = "Demon Vava News"
+BOT_NAME = "Raze News"
 COLOR = 0xFF4655  # vermelho do Valorant
 
 STATE_FILE = Path(__file__).with_name("sent.json")
@@ -197,7 +197,7 @@ def build_embed(n: dict) -> discord.Embed:
         color=COLOR,
         timestamp=n["published"],
     )
-    embed.set_author(name=f"{BOT_NAME} • News Digest", icon_url=AVATAR_URL)
+    embed.set_author(name=f"{BOT_NAME}", icon_url=AVATAR_URL)
 
     ts = int(n["published"].timestamp())
     embed.add_field(name="📰 Fonte", value=f"[{n['source']}]({n['source_home']})", inline=True)
